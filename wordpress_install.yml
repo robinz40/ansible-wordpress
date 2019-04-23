@@ -1,0 +1,20 @@
+---
+- name: Install python
+  hosts: dbserv
+  gather_facts: False
+  
+  tasks:
+  - name: install python 3
+    apt: name=python3-pip
+
+- name: Install Wordpress
+  hosts: dbserv
+  remote_user: robin
+  become: true
+
+  roles :
+    - FTP
+    - Apache
+    - php
+    - mysql
+    - wordpress

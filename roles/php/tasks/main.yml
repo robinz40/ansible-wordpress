@@ -1,0 +1,14 @@
+---
+- name: Install php
+  apt:
+    name: 
+      - php7.2-mysql
+      - php7.2
+      - libapache2-mod-php7.2
+
+- name: Install php extensions
+  apt: 
+    name:
+      - php7.2-gd
+      - php7.2-ssh2 
+    state: present

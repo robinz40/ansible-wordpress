@@ -1,0 +1,6 @@
+---
+- name: Install FTP server
+  apt: name=vsftpd
+
+- name: Start FTP server
+  action: systemd name=vsftpd state=started

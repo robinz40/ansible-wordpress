@@ -1,0 +1,25 @@
+- name: Install mysql
+  apt:
+    name:
+      - mysql-server
+      - python-mysqldb
+
+- name: Start mysql
+  service: 
+    name: mysql
+    enabled: yes
+    state: started
+
+- name: Change root password
+  mysql_user:
+    name: root
+    host: 
+      - 127.0.0.1
+      - ::1
+      - localhost
+    password: root
+
+-  name: Store mysql password
+   copy:
+     src: conf/id_db.cnf
+     dest: /root/.my.cnf
